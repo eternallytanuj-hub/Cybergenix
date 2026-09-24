@@ -1,0 +1,119 @@
+{
+  "timestamp": "2026-09-24T19:41:04.546Z",
+  "targetUrl": "http://localhost:5173",
+  "suites": [
+    {
+      "name": "SecurityAudit Tabs",
+      "tests": [
+        {
+          "name": "High-Frequency Tab Toggling (50 cycles @ 10ms)",
+          "pass": true,
+          "details": "All 50 rapid toggles maintained 100% aria-pressed and panel display synchronization."
+        },
+        {
+          "name": "Final Settled State Synchronization",
+          "pass": true,
+          "details": "Settled cleanly on Tab 0: tab0 aria-pressed=true, tab1 aria-pressed=false, panel0 visible, panel1 hidden."
+        },
+        {
+          "name": "Radial Gauge Animation Resilience",
+          "pass": true,
+          "details": "Gauge score rendered valid integer (63/100) without NaN or animation loop locks."
+        },
+        {
+          "name": "Memory Stability Under Rapid Toggling (No Leak)",
+          "pass": true,
+          "details": "Heap usage delta was 480 KB across 50 rapid re-renders (well within < 10MB ceiling)."
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "name": "FAQ Accordion",
+      "tests": [
+        {
+          "name": "Single-Item Exclusivity Under High-Frequency Toggles (15 rapid clicks)",
+          "pass": true,
+          "details": "Strict single-item exclusivity maintained across all 15 rapid toggle cycles (at most 1 item open at any time)."
+        },
+        {
+          "name": "Accordion Stable Settled State",
+          "pass": true,
+          "details": "Final settled state has 1 open item (item [0])."
+        },
+        {
+          "name": "Semantic <details name=\"faq\"> & SVG Plus/Minus Transition Tokens",
+          "pass": true,
+          "details": "All 5 FAQ items use standard semantic tokens with group-open:rotate-90 plus-to-minus animation."
+        }
+      ],
+      "passed": 3,
+      "failed": 0
+    },
+    {
+      "name": "ScheduleDemo Consultation Form",
+      "tests": [
+        {
+          "name": "HTML5 Constraint Validation for Malformed Email Payloads (7 variations)",
+          "pass": true,
+          "details": "All 7 invalid email variations correctly rejected by browser constraint validation."
+        },
+        {
+          "name": "Mandatory Field Enforcement (first_name, company, email, phone)",
+          "pass": true,
+          "details": "All 4 required fields strictly enforce HTML5 required constraints and block empty submissions."
+        },
+        {
+          "name": "Adversarial XSS Payload Injection (<script>, <img>, <svg>, <marquee>)",
+          "pass": true,
+          "details": "XSS payloads safely sanitized by React JSX text-node escaping: zero script execution, zero dialog alerts, safe visual rendering."
+        },
+        {
+          "name": "Form State Machine Reset Flow (\"Submit Another Inquiry\")",
+          "pass": true,
+          "details": "Form successfully returned from submitted success card to clean input state."
+        },
+        {
+          "name": "10,000-char Buffer & Multi-byte Unicode Resilience",
+          "pass": true,
+          "details": "Handled 10,000+ char input and multi-byte Unicode/RTL symbols smoothly in 208ms without memory or UI freeze."
+        }
+      ],
+      "passed": 5,
+      "failed": 0
+    },
+    {
+      "name": "Component Element Counts",
+      "tests": [
+        {
+          "name": "Complete Rendering of 18 Partner Institutions in LogoReel",
+          "pass": true,
+          "details": "All 18 unique partner institutions verified in LogoReel DOM (Government, Academic, Tech Giants, Cyber Defense, Enterprise)."
+        },
+        {
+          "name": "Complete Rendering of 6 Client Testimonials",
+          "pass": true,
+          "details": "Exactly 6 authentic testimonials verified with verified quotes and role attributions."
+        },
+        {
+          "name": "Complete Rendering of 3 Tiered Pricing Plans & Comparison Matrix",
+          "pass": true,
+          "details": "Exactly 3 pricing tiers rendered [SaaS Plan, Robot + SaaS, Custom Enterprise] with 13-row feature matrix."
+        },
+        {
+          "name": "Complete Rendering of Executive Leadership Team",
+          "pass": true,
+          "details": "Both executive founders verified in DOM (2 ChamferCards): Divyansh Kumar Mishra (Founder, CEO [DKM]) and Prakhar Singh (Co-Founder, COO [PS])."
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    }
+  ],
+  "summary": {
+    "total": 16,
+    "passed": 16,
+    "failed": 0
+  }
+}

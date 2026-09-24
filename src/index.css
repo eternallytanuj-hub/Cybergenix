@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Fluid Rem Typography Baseline Engine (1rem = 10px baseline)
+   Exact match to kzero.com responsive scaling
+   ========================================================================== */
+:root {
+  --color-primary: #f85c3a;
+  --color-bg: #000000;
+  --chamfer: 0.9rem;
+}
+
+html {
+  font-size: 2.666667vw; /* Mobile: 1rem = 10px @ 375px viewport */
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #f2f2f2;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 0.520833vw; /* Desktop: 1rem = 10px @ 1920px viewport */
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 10px; /* Fixed 10px cap for 4K and ultra-wide screens */
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #f2f2f2;
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Lenis Smooth Scroll Standard Styles
+   ========================================================================== */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Typography & Headline Highlights
+   ========================================================================== */
+h1 strong,
+h2 strong,
+h3 strong {
+  color: var(--color-primary);
+  font-weight: inherit;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Neue Machina', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.metal {
+  background: radial-gradient(65.14% 95.92% at 48.14% 5%, #ebe6e1 46.83%, #c3c0ba);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(244deg, #fff7a7 0%, #f48445 19.51%, #fff7a7 30.2%, #ff98ff 43.39%, #5a66ee 57.46%, #91bdff 64.75%, #91bdff 83.71%, #ff98ff 93.14%, #dc36c3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Section Caption with Slash Prefix */
+.Caption {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #f85c3a;
+  margin-bottom: 1.5rem;
+}
+
+.Caption:before,
+.caption-slash:before {
+  content: "/ ";
+  color: #f85c3a;
+  margin-right: 0.4rem;
+}
+
+/* ==========================================================================
+   Chamfer & Mask Helpers
+   ========================================================================== */
+.clip-chamfer {
+  clip-path: polygon(
+    0.9rem 0,
+    100% 0,
+    100% calc(100% - 0.9rem),
+    calc(100% - 0.9rem) 100%,
+    0 100%,
+    0 0.9rem
+  );
+}
+
+.clip-chamfer-sm {
+  clip-path: polygon(
+    0.5rem 0,
+    100% 0,
+    100% calc(100% - 0.5rem),
+    calc(100% - 0.5rem) 100%,
+    0 100%,
+    0 0.5rem
+  );
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility Guard
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
